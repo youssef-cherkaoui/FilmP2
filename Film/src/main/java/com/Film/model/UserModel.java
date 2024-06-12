@@ -13,22 +13,15 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class FilmModel {
-
+public class UserModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idMovie;
-    private String titre;
-    private String description;
-    private String dateSortie;
-    private String duree;
-    private String genre;
-    private String realisateur;
-    private String acteurs;
-    private double note;
+    Long IdUser;
+    String UserName;
+    String Password;
 
     @ManyToOne
-    @JoinColumn(name="IdFavo" , nullable = false)
+    @JoinColumn(name="idFavori", nullable=false)
     private FavoFilmModel favoFilmModel;
 
 }
