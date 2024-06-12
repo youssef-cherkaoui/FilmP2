@@ -1,6 +1,5 @@
 package com.Film.model;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,11 +15,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class FilmModel {
+public class SerieModel {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long idMovie;
+    private Long idSerie;
     private String titre;
     private String description;
     private String dateSortie;
@@ -29,5 +29,4 @@ public class FilmModel {
     private String realisateur;
     private String acteurs;
     private double note;
-
 }
