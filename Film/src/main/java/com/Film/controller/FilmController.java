@@ -28,7 +28,7 @@ public class FilmController {
         return filmRepositorie.save(film);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/R/{id}")
     public FilmModel getFilmById(@PathVariable long id){
         return filmRepositorie.findById(id).orElse(null);
     }

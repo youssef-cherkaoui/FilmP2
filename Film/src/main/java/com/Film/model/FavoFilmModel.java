@@ -20,9 +20,9 @@ public class FavoFilmModel {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long IdFavo;
 
-    @OneToMany(mappedBy = "idMovie")
+   /* @OneToMany(mappedBy = "idMovie")
     private List<FilmModel> favoFilmModels;
 
     @OneToMany(mappedBy = "IdUser")
-    private List<UserModel> userModels;
+    private List<UserModel> userModels;*/
 }

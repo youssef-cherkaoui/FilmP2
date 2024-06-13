@@ -27,8 +27,8 @@ public class FilmModel {
     private String acteurs;
     private double note;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name="IdFavo" , nullable = false)
-    private FavoFilmModel favoFilmModel;
+    private FavoFilmModel favoFilmModel;*/
 
 }

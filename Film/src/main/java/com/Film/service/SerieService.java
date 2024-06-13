@@ -7,6 +7,7 @@ import com.Film.repostorie.SerieRepositorie;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class SerieService {
@@ -42,5 +43,30 @@ public class SerieService {
         serie = serieRepositorie.save(serie);
         return serieDTO;
     }
+
+
+    public void deleteSerie( long idSerie){
+        serieRepositorie.deleteById(idSerie);
+    }
+
+    public SerieDTO getSerieById(long idSerie) {
+        Optional<SerieModel> serieModelOptional = serieRepositorie.findById(idSerie);
+        if (serieModelOptional.isPresent()) {
+            SerieModel serieModel = serieModelOptional.get();
+            SerieDTO serieDTO = new SerieDTO();
+            serieDTO.setActeurs(serieModel.getActeurs());
+            serieDTO.setDateSortie(serieModel.getDateSortie());
+            serieDTO.setDuree(serieModel.getDuree());
+            serieDTO.setTitre(serieModel.getTitre());
+            serieDTO.setGenre(serieModel.getGenre());
+            serieDTO.setNote(serieModel.getNote());
+            serieDTO.setDescription(serieModel.getDescription());
+            serieDTO.setRealisateur(serieModel.getRealisateur());
+            return serieDTO;
+        } else {
+            throw new RuntimeException("Serie not found with id: " + idSerie);
+        }
+    }
+
 
 }

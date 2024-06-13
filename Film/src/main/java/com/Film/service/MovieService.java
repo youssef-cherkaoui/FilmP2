@@ -8,6 +8,7 @@ import com.Film.repostorie.FilmRepositorie;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class MovieService {
@@ -46,6 +47,30 @@ public class MovieService {
         return filmDTO;
     }
 
+
+   public void deleleFilm(Long idMovie){
+        filmRepositorie.deleteById(idMovie);
+   }
+
+
+    public FilmDTO getFilmById(long idMovie) {
+        Optional<FilmModel> filmModelOptional = filmRepositorie.findById(idMovie);
+        if (filmModelOptional.isPresent()) {
+            FilmModel filmModel = filmModelOptional.get();
+            FilmDTO filmDTO = new FilmDTO();
+            filmDTO.setActeurs(filmModel.getActeurs());
+            filmDTO.setDateSortie(filmModel.getDateSortie());
+            filmDTO.setDuree(filmModel.getDuree());
+            filmDTO.setTitre(filmModel.getTitre());
+            filmDTO.setGenre(filmModel.getGenre());
+            filmDTO.setNote(filmModel.getNote());
+            filmDTO.setDescription(filmModel.getDescription());
+            filmDTO.setRealisateur(filmModel.getRealisateur());
+            return filmDTO;
+        } else {
+            throw new RuntimeException("film n'est pas trouvé par ID: " + idMovie);
+        }
+    }
 
 
 

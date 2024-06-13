@@ -26,13 +26,14 @@ public class SerieController {
         return serieRepositorie.save(serie);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/R/{id}")
     public SerieModel getSerieById(@PathVariable long id){
         return serieRepositorie.findById(id).orElse(null);
     }
 
     @DeleteMapping("/{id}")
     public void deleteSerie(@PathVariable long id){
+
         serieRepositorie.deleteById(id);
     }
 
