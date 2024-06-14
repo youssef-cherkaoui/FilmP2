@@ -19,9 +19,13 @@ public class UserModel {
     Long IdUser;
     String UserName;
     String Password;
+/*
+    @ManyToOne
+    @JoinColumn(name="IdFavofilm", nullable=false)
+    private FavoFilmModel favoFilmModel;
 
     @ManyToOne
-    @JoinColumn(name="idFavori", nullable=false)
-    private FavoFilmModel favoFilmModel;
+    @JoinColumn(name = "IdFavoserie", nullable = false)
+    private FavoSerieModel favoSerieModel;*/
 
 }

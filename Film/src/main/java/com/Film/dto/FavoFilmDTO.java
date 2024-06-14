@@ -6,8 +6,9 @@ import lombok.Data;
 @Data
 public class FavoFilmDTO {
 
-    private long IdFavo;
+    private long IdFavofilm;
     private long idMovie;
-    private long idSerie;
+    private long IdUser;
+
 
 }

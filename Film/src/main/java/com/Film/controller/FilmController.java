@@ -1,10 +1,11 @@
 package com.Film.controller;
 
 
+import com.Film.dto.FilmDTO;
 import com.Film.model.FilmModel;
 import com.Film.repostorie.FilmRepositorie;
+import com.Film.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,10 +18,12 @@ public class FilmController {
 
     @Autowired
     private FilmRepositorie filmRepositorie;
+    @Autowired
+    private MovieService  movieService ;
 
     @GetMapping
-    public List<FilmModel> getAllFilms(){
-        return filmRepositorie.findAll();
+    public List<FilmDTO> getAllFilms(){
+        return movieService.getAllFilms();
     }
 
     @PostMapping
@@ -43,7 +46,6 @@ public class FilmController {
         film.setIdMovie(id);
         return filmRepositorie.save(film);
     }
-
 
 
 }

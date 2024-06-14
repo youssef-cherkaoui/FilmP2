@@ -6,11 +6,12 @@ import com.Film.model.FilmModel;
 import com.Film.model.SerieModel;
 import com.Film.repostorie.FilmRepositorie;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+@Controller
 public class MovieService {
 
     @Autowired

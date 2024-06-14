@@ -9,21 +9,22 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Entity
+public class FavoSerieModel {
 
-public class FavoFilmModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long IdFavofilm;
-//    @JsonIgnore
-//    @OneToMany(mappedBy = "idMovie")
-//    private List<FilmModel> listFilm;
-//@JsonIgnore
-//    @OneToMany(mappedBy = "IdUser")
-//    private List<UserModel> userModels;
+    private Long IdFavoserie;
+    @JsonIgnore
+    @OneToMany(mappedBy = "idSerie")
+    private List<SerieModel> favoSerieModels;
+    @JsonIgnore
+    @OneToMany(mappedBy = "IdUser")
+    private List<UserModel> userModels;
+
 }
